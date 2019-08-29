@@ -13,6 +13,15 @@ public class tankDrive extends robotPart {
         super.init(hwmap, myTelemetry);
         mtrL = hwmap.dcMotor.get("mtrFL");
         mtrR = hwmap.dcMotor.get("mtrFR");
+    }
 
+    public void forward(double power){
+        mtrL.setPower(power);
+        mtrR.setPower(power);
+    }
+
+    public void turn(double power){
+        mtrL.setPower(-power);
+        mtrR.setPower(power);
     }
 }
