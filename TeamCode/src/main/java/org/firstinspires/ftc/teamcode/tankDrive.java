@@ -8,6 +8,7 @@ import org.firstinspires.ftc.robotcore.external.Telemetry;
 public class tankDrive extends robotPart {
     public DcMotor mtrL = null;
     public DcMotor mtrR = null;
+    Sensors sensors = new Sensors();
 
     public void init(HardwareMap hwmap, Telemetry myTelemetry){
         super.init(hwmap, myTelemetry);
