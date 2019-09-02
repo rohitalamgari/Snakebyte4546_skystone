@@ -18,6 +18,7 @@ public class Sensors extends robotPart{
     public BNO055IMU gyro;
     Orientation angles;
     Acceleration gravity;
+    BNO055IMU.Parameters parameters;
 
     //init method to set parameters and hwmap sensors
     public void init(HardwareMap hwmap, Telemetry myTelemetry){
@@ -35,6 +36,23 @@ public class Sensors extends robotPart{
 
     public void updateValues(){
         angles = gyro.getAngularOrientation();
+    }
+
+    public boolean resetGyro(){
+        return gyro.initialize(parameters);
+    }
+
+    //returns positive angle to turn right & negative angle to turn left
+    public double angleDiff(double goalAngle){
+        double currAngle = gyroYaw();
+        if (currAngle >= 0 && goalAngle >= 0 || currAngle <= 0 && goalAngle <= 0) //curr & goal are both positive or both negative
+            return -(currAngle - goalAngle);
+        else if (Math.abs(currAngle - goalAngle) <= 180)//diff btwn curr & goal is less than or equal to 180
+            return -(currAngle - goalAngle);
+        else if (currAngle > goalAngle)//curr is greater than goal
+            return (360 - (currAngle - goalAngle));
+        else if (goalAngle > currAngle)//goal is greater than curr
+            return -(360 + (currAngle - goalAngle));
     }
 
     //gyro method to get yaw
