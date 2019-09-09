@@ -47,7 +47,7 @@ public class Sensors extends robotPart{
     }
 
     //returns positive angle to turn right & negative angle to turn left
-    /*
+
 //Have to fix this method, the returns are not being picked up
 //And @arya, you forgot the brackets around your ifs and else's
 //Also, some methods return the same thing. I don't think that's
@@ -60,11 +60,11 @@ public class Sensors extends robotPart{
             return -(currAngle - goalAngle);
         } else if (currAngle > goalAngle) {//curr is greater than goal
             return (360 - (currAngle - goalAngle));
-        } else if (goalAngle > currAngle) {//goal is greater than curr
+        } else {//goal is greater than curr
             return -(360 + (currAngle - goalAngle));
         }
     }
-*/
+
     //gyro method to get yaw
     public double gyroYaw(){
         updateValues();
