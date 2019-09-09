@@ -13,6 +13,10 @@ import org.firstinspires.ftc.robotcore.external.navigation.Orientation;
 
 import java.util.Locale;
 
+//Eventually, we will no longer need this class as sensors will
+//be integrated into each different thing
+//Ex: Drive Train will have gyro and color sensors,
+//Lift will have distance sensors
 public class Sensors extends robotPart{
 
     public BNO055IMU gyro;
@@ -43,18 +47,24 @@ public class Sensors extends robotPart{
     }
 
     //returns positive angle to turn right & negative angle to turn left
-    public double angleDiff(double goalAngle){
+    /*
+//Have to fix this method, the returns are not being picked up
+//And @arya, you forgot the brackets around your ifs and else's
+//Also, some methods return the same thing. I don't think that's
+//what this function is supposed to do
+    public double angleDiff(double goalAngle) {
         double currAngle = gyroYaw();
-        if (currAngle >= 0 && goalAngle >= 0 || currAngle <= 0 && goalAngle <= 0) //curr & goal are both positive or both negative
+        if (currAngle >= 0 && goalAngle >= 0 || currAngle <= 0 && goalAngle <= 0) { //curr & goal are both positive or both negative
             return -(currAngle - goalAngle);
-        else if (Math.abs(currAngle - goalAngle) <= 180)//diff btwn curr & goal is less than or equal to 180
+        } else if (Math.abs(currAngle - goalAngle) <= 180) {//diff btwn curr & goal is less than or equal to 180
             return -(currAngle - goalAngle);
-        else if (currAngle > goalAngle)//curr is greater than goal
+        } else if (currAngle > goalAngle) {//curr is greater than goal
             return (360 - (currAngle - goalAngle));
-        else if (goalAngle > currAngle)//goal is greater than curr
+        } else if (goalAngle > currAngle) {//goal is greater than curr
             return -(360 + (currAngle - goalAngle));
+        }
     }
-
+*/
     //gyro method to get yaw
     public double gyroYaw(){
         updateValues();
