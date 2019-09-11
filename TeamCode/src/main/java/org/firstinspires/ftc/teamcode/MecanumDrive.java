@@ -87,11 +87,19 @@ public class MecanumDrive extends robotPart {
 
     //this method sends power so that the robot will move in left/right vectors
     //power is based upon what type of wheel the motor is spinning
-    public void strafe(double power){
+    public void strafeLeft(double power){
         mtrFL.setPower(-power);
         mtrBR.setPower(-power);
         mtrFR.setPower(power);
         mtrBL.setPower(power);
+    }
+
+    public void strafeRight(double power)
+    {
+        mtrFL.setPower(power);
+        mtrBR.setPower(power);
+        mtrFR.setPower(-power);
+        mtrBL.setPower(-power);
     }
 
     public void updateValues(){
