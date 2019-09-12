@@ -34,9 +34,9 @@ public class MechanumTeleop extends OpMode {
 
     @Override
     public void loop() {
-        double fwd = gamepad1.right_stick_y;
-        double strafe = gamepad1.right_stick_x;
-        double turn = gamepad1.left_stick_x;
+        double fwd = gamepad1.left_stick_y;
+        double strafe = gamepad1.left_stick_x;
+        double turn = gamepad1.right_stick_x;
 
         if (Math.abs(fwd) > deadZone){ fwd = fwd;}
         else { fwd = 0; }
