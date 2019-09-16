@@ -48,9 +48,9 @@ public class MechanumTeleop extends OpMode {
         else { strafe = 0; }
 
 
-        robot.driveTrain.mtrFR.setPower(weightAvg(fwd,strafe,-turn));
-        robot.driveTrain.mtrFL.setPower(weightAvg(fwd,-strafe,turn));
-        robot.driveTrain.mtrBR.setPower(weightAvg(fwd,-strafe,-turn));
+        robot.driveTrain.mtrFR.setPower(weightAvg(fwd,strafe,turn));
+        robot.driveTrain.mtrFL.setPower(weightAvg(fwd,strafe,turn));
+        robot.driveTrain.mtrBR.setPower(weightAvg(fwd,strafe,turn));
         robot.driveTrain.mtrBL.setPower(weightAvg(fwd,strafe,turn));
 
     }
