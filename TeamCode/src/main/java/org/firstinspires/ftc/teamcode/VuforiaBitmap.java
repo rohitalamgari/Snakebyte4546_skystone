@@ -96,8 +96,8 @@ public class VuforiaBitmap {
     }
 
     public double avgX() throws InterruptedException{
-        int avgX = 0;
-        int avgY = 0;
+        double avgX = 0;
+        double avgY = 0;
         Bitmap bitmap = getBitmap();
         int skystonePixelCount = 0;
         ArrayList<Integer> xValues = new ArrayList<>();
