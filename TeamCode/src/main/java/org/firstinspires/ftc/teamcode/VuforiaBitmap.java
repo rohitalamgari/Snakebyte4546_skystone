@@ -95,6 +95,36 @@ public class VuforiaBitmap {
         return imageBitmap;
     }
 
+    public double avgX() throws InterruptedException{
+        int avgX = 0;
+        int avgY = 0;
+        Bitmap bitmap = getBitmap();
+        int skystonePixelCount = 0;
+        ArrayList<Integer> xValues = new ArrayList<>();
+        ArrayList<Integer> yValues = new ArrayList<>();
+
+        for (int y = 0; y < bitmap.getHeight()/2; y++){
+            for (int x = 0; x < bitmap.getWidth(); x++){
+                int pixel = bitmap.getPixel(x,y);
+                if (red(pixel) <= RED_THRESHOLD && blue(pixel) <= BLUE_THRESHOLD && green(pixel) <= GREEN_THRESHOLD){
+                    xValues.add(x);
+                    yValues.add(y);
+                }
+            }
+        }
+
+        for (int xCoor : xValues){
+            avgX += xCoor;
+        }
+        for (int yCoor : yValues){
+            avgY += yCoor;
+        }
+        avgX /= xValues.size();
+        avgY /= yValues.size();
+
+        return avgX;
+    }
+
 
 
 
