@@ -10,11 +10,12 @@ public class VuforiaBitmapTest extends LinearOpMode {
 
     @Override
     public void runOpMode() throws InterruptedException{
+        VuforiaBitmap sample = new VuforiaBitmap(this);
 
+        while (!isStarted()){
+            telemetry.addData("avgX: ", sample.avgX());
+            telemetry.update();
+        }
         waitForStart();
-        sample = new VuforiaBitmap(this);
-
-        telemetry.addData("avgX: ", sample.avgX());
-        telemetry.update();
     }
 }

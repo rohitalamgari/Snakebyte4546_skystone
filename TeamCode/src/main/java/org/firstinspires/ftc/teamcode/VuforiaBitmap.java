@@ -33,9 +33,9 @@ public class VuforiaBitmap {
 
     public static String skystonePosition;
 
-    private final int RED_THRESHOLD = 0;
-    private final int GREEN_THRESHOLD = 0;
-    private final int BLUE_THRESHOLD = 0;
+    private final int RED_THRESHOLD = 35;
+    private final int GREEN_THRESHOLD = 35;
+    private final int BLUE_THRESHOLD = 35;
 
     public VuforiaBitmap(LinearOpMode opMode){
 
@@ -86,13 +86,20 @@ public class VuforiaBitmap {
         opMode.telemetry.addData("Image height", imageBitmap.getHeight());
         opMode.telemetry.update();
 
-
         picture.close();
 
-        opMode.telemetry.addLine("Got bitmap");
-        opMode.telemetry.update();
 
         return imageBitmap;
+    }
+
+    public double getImageHeight() throws InterruptedException{
+        Bitmap bitmap = getBitmap();
+        return bitmap.getHeight();
+    }
+
+    public double getImageWidth() throws InterruptedException{
+        Bitmap bitmap = getBitmap();
+        return bitmap.getWidth();
     }
 
     public double avgX() throws InterruptedException{
